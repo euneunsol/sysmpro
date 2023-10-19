@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
       exit(1);
    }
 
-   fp = fopen(argv[1], "wb");
+   fp = fopen(argv[1], "w");
    printf("%-9s %-7s %-4s\n", "StudentID", "Name", "Score");
    while (scanf("%d %s %hd", &rec.id, rec.name, &rec.score) == 3)
       fwrite(&rec, sizeof(rec), 1, fp);
