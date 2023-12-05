@@ -1,0 +1,14 @@
+(echo START1; sleep 10; echo DONE1) &
+-> Create two background subshells. Each subshell outputs "START1," waits for 10 seconds, and then outputs "DONE1."
+
+(echo START2; sleep 10; echo DONE2) &
+-> Create another background subshell. This subshell outputs "START2," waits for 10 seconds, and then outputs "DONE2."
+
+kill -KILL <first process>
+-> Forcefully terminate the process corresponding to the "first process." Immediately interrupts the ongoing actions of the process.
+
+kill -STOP <first process>
+-> Pause the process associated with the "first process." The process will no longer execute, but it will not be terminated.
+
+kill -CONT <first process>
+-> Resume the process associated with the "first process" so that it can continue execution. The process resumes from where it was paused.

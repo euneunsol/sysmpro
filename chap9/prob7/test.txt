@@ -1,0 +1,28 @@
+sleep 100&
+-> [1] 9336
+
+sleep 100&
+-> [2] 9339
+
+jobs
+-> [1]- Running sleep 100 &
+   [2]+ Running sleep 100 &
+
+ps -f
+-> 
+UID		 PID	PPID	C	STIME	TTY			TIME   CMD
+dcuuser 9318       0    0   06:35   pts/4   00:00:00   /bin/bash -l
+dcuuser 9336    9318    0   06:35   pts/4   00:00:00   sleep 100
+dcuuser 9339    9318    0   06:36   pts/4   00:00:00   sleep 100
+dcuuser 9341    9318    0   06:36   pts/4   00:00:00   ps -f
+
+kill %l
+-> bash: kill: %l: no such job
+[1]- Terminated			sleep 100
+
+ps -f
+->
+UID		  PID	PPID	C	STIME	TTY			TIME   CMD
+dcuuser  9318      0    0   06:35   pts/4   00:00:00   /bin/bash -l
+dcuuser  9339   9318    0   06:36   pts/4   00:00:00   sleep 100
+dcuuser  9345   9318    0   06:36   pts/4   00:00:00   ps -f
